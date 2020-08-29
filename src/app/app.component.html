@@ -1,0 +1,73 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<!-- <grid>
+  <line>
+    <point>
+      <tooltip />
+    </point>
+  </line>
+
+  <line>
+    <point />
+  </line>
+
+  <axis>
+    <tick />
+  </axis>
+</grid> -->
+
+<svg viz>
+  <g series [name]="Foobar" [data]="[[20,20],[50,10]]">
+    <g *pointDef="let element">
+      <circle
+        [attr.r]="5"
+        [attr.cx]="element[0]"
+        [attr.cy]="element[1]"
+      ></circle>
+    </g>
+  </g>
+
+  <g series [name]="Eggs" [data]="[[1,1],[50,50]]">
+    <g *lineDef="let element">
+      <path [attr.d]="element" stroke="blue" />
+    </g>
+
+    <g *pointDef="let element">
+      <circle
+        fill="blue"
+        [attr.r]="2"
+        [attr.cx]="element[0]"
+        [attr.cy]="element[1]"
+      ></circle>
+    </g>
+  </g>
+
+  <!-- <g legend *legendDef="let allSeries">
+    Series 1
+    Series 2...
+  </g> -->
+
+  <!-- <line *lineDef="let element">
+    <point *pointDef="let element">
+      <tooltip *tooltipDef="let element">
+        {{ element }}
+      </tooltip>
+    </point>
+  </line> -->
+</svg>
+
+<ng-template #foo>
+  <svg:g></svg:g>
+  <g point *pointDef="let element">
+    <svg:circle
+      [attr.r]="element[0]"
+      [attr.cx]="element[0]"
+      [attr.cy]="element[1]"
+    ></svg:circle>
+  </g>
+</ng-template>
